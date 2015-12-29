@@ -1,0 +1,11 @@
+interlock:
+    image: ehazlett/interlock
+    hostname: interlock
+    container_name: interlock
+    ports:
+     - "10080:80"
+     - "10443:443"
+    command: --swarm-url tcp://172.17.0.1:2375 --plugin stats start
+    environment:
+     - STATS_CARBON_ADDRESS=172.17.0.1:2003
+     - STATS_INTERVAL=5
